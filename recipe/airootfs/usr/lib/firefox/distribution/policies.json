@@ -1,0 +1,14 @@
+{
+  "policies": {
+    "DisableAppUpdate": true,
+    "ExtensionSettings": {
+      "*": {
+        "installation_mode": "allowed"
+      }
+    },
+    "Preferences": {
+      "general.smoothScroll": true,
+      "layout.css.prefers-color-scheme.content-override": 0
+    }
+  }
+}

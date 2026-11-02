@@ -1,0 +1,9 @@
+# Firefox Extensions.
+# Add full URLs or slugs:
+ublock-origin
+bitwarden-password-manager
+darkreader
+tampermonkey
+sponsorblock
+clearurls
+https://addons.mozilla.org/en-US/firefox/addon/black21/
