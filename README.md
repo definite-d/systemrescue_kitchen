@@ -15,5 +15,11 @@ tweaks to my liking, namely:
 - Custom wallpapers
 - Some Firefox [extensions](./extensions.txt) I like.
 
+## Usage
+0. Clone the repo
+0. Create `./input` and `./output` folders in the repo root.
+0. Paste in a SystemRescue ISO image into `./input`.
+0. Run [`build.sh`](./build.sh).s
+
 
 > Wallpapers by [Pawel Czerwinski on Unsplash](https://unsplash.com/@pawel_czerwinski)
