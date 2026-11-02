@@ -8,8 +8,19 @@ RECIPE_DIR="$SCRIPT_DIR/recipe"
 EXT_LIST="$SCRIPT_DIR/extensions.txt"
 WORK_DIR="/tmp/sysrescue-build-$$"
 
+# Path to local or system executable
+CUSTOMIZE_BIN="$(command -v sysrescue-customize 2>/dev/null || echo "$SCRIPT_DIR/bin/sysrescue-customize")"
+
+if [[ ! -x "$CUSTOMIZE_BIN" ]]; then
+    echo "[*] 'sysrescue-customize' not found on PATH. Fetching from upstream GitLab..."
+    mkdir -p "$SCRIPT_DIR/bin"
+    curl -sSL "https://gitlab.com/systemrescue/systemrescue-sources/-/raw/main/airootfs/usr/bin/sysrescue-customize" -o "$SCRIPT_DIR/bin/sysrescue-customize"
+    chmod +x "$SCRIPT_DIR/bin/sysrescue-customize"
+    CUSTOMIZE_BIN="$SCRIPT_DIR/bin/sysrescue-customize"
+fi
+
 # 1. Dependency checks
-for cmd in sysrescue-customize curl jq; do
+for cmd in curl jq mksquashfs rsync xorriso; do
     if ! command -v "$cmd" >/dev/null 2>&1; then
         echo "[-] Error: Required tool '$cmd' is not installed."
         exit 1
@@ -110,7 +121,7 @@ chmod 700 "$WORK_DIR/iso_add/root" 2>/dev/null || true
 
 # 7. Invoke sysrescue-customize
 echo "[*] Building ISO with sysrescue-customize..."
-sudo sysrescue-customize \
+sudo "$CUSTOMIZE_BIN" \
     --source="$LATEST_ISO" \
     --dest="$OUTPUT_ISO" \
     --recipe-dir="$WORK_DIR"

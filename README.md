@@ -2,7 +2,7 @@
 
 My config for customizing [SystemRescue](https://www.system-rescue.org/).
 
-> Requires `sysrescue-customize`, `curl`, and `jq`.
+> Requires `sysrescue-customize`, `curl`, `jq`, `mksquashfs`, `rsync`, and `xorriso`.
 
 Uses a simple script which when run, finds the latest version of the SystemRescue ISO in the `input` folder,
 and uses [`sysrescue-customize`](https://www.system-rescue.org/scripts/sysrescue-customize/) to make some 
