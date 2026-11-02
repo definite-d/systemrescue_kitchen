@@ -2,10 +2,10 @@
 
 My config for customizing [SystemRescue](https://www.system-rescue.org/).
 
-> Requires `systemrescue-customize`, `curl`, and `jq`.
+> Requires `sysrescue-customize`, `curl`, and `jq`.
 
 Uses a simple script which when run, finds the latest version of the SystemRescue ISO in the `input` folder,
-and uses [`systemrescue-customize`](https://www.system-rescue.org/scripts/sysrescue-customize/) to make some 
+and uses [`sysrescue-customize`](https://www.system-rescue.org/scripts/sysrescue-customize/) to make some 
 tweaks to my liking, namely:
 
 - Touchpad settings
